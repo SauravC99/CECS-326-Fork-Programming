@@ -31,7 +31,7 @@ int main() {
                 cout << "Parent process: pid " << getpid() << ", ppid " 
                 << getppid() << ", child " << childPID << "\n" << endl;
                 
-                wait(NULL);
+                wait(NULL); //wait untill child is finished
 
                 if (choice == 2) {
                     break;
@@ -56,12 +56,9 @@ int main() {
 
                 array = new char[sizea]; //allocate memory for array
 
-                //cout << "Size of array is: " << sizea << "\n" << endl;
-
                 //fill array with random letters
                 for (int i = 0; i < sizea; i++) {
                     array[i] = (rand() % 26) + 'A';
-                    //cout << array[i] << endl;
                 }
 
                 //Search through array and count
