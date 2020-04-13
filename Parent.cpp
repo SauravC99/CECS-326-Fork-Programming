@@ -70,8 +70,20 @@ int main() {
                     if (array[i] == letter) {
                         count++;
                     }
+                    if (false){ //false gate, only used for injected bug
+                        there:
+                        i = 0;
+                    }
                 }
 
+                if (count == 0) { //injected bug, restart search
+                    cout << "INJECTED BUG\nNot found, restarting" << endl;
+                    cout << "Run kill command" << endl;
+                    cout << "kill -9 " << getpid() << endl;
+                    sleep(1); //sleep for a second to see the PID in console
+                    goto there;
+                }
+                
                 cout << "count is " << count << endl;
                 cout << "" << endl;
                 cout << "exit child" << endl;
